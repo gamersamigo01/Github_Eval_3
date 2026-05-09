@@ -5,9 +5,9 @@ valor_super = []
 print("Precione 1 para ingresar los productos del super")
 print("Precione cualquier tecla para salir")
 
-opt = int(input("Ingrese su opcion: "))
+opt = input("Ingrese su opcion: ")
 
-if opt == 1:
+if opt == "1":
     while sw ==1:
         try:
             print("-"*16)
