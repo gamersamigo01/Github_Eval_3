@@ -4,7 +4,7 @@ suma = 0
 for i in notas:
     suma = i + suma
 promedio = suma / (len(notas))
-print("Su promedio:",promedio)
+print(f"Su promedio: {promedio:.2f}")
 
 if promedio >= 4.0:
     print("Aprueba")
