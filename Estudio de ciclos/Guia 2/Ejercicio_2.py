@@ -1,6 +1,6 @@
 notas = [2.5,6.7,5.5,7.0,4.2]
-suma = float(0)
-promedio = float(0)
+suma = float(0.0)
+promedio = float(0.0)
 
 for i in notas:
     suma = i + suma
