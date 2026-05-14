@@ -1,4 +1,4 @@
-frase = "Hola chaval"
+frase = "Hola amigo"
 vocales = "aeiou"
 num_vocales = 0
 num_consonantes = 0
