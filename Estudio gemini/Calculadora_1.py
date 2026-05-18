@@ -22,10 +22,17 @@ while opcion != 5:
                 except ValueError:
                     print("Solo se permite el ingres de numeros")
         case 2:
-            num1 = int(input("Ingrese el primer numero: "))
-            num2 = int(input("Ingrese el segundo numero: "))
-            resultado = num1 - num2
-            print(f"El resultado de su resta es: {resultado}")
+            suma_exitosa = False
+            while not suma_exitosa:
+                try:
+                    cantidad = int(input("Ingrese la cantidad de numeros que desea restar: "))
+                    for i in range(cantidad):
+                        numero = int(input(f"Ingrese el {i+1}° numero: "))
+                        resultado = numero - resultado
+                    print(f"El resultado de la resta es: {resultado}")
+                    suma_exitosa = True
+                except ValueError:
+                    print("Solo se permite el ingresar de numeros")
         case 3:
             num1 = int(input("Ingrese el primer numero: "))
             num2 = int(input("Ingrese el segundo numero: "))
