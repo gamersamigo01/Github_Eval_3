@@ -6,7 +6,7 @@ print("4. Dividir")
 print("5. Salir")
 opcion = int(input("Ingrese una opcion: "))
 resultado = 0
-
+resta = 0
 while opcion != 5:
     match opcion:
         case 1:
@@ -22,15 +22,21 @@ while opcion != 5:
                 except ValueError:
                     print("Solo se permite el ingres de numeros")
         case 2:
-            suma_exitosa = False
-            while not suma_exitosa:
+            resta_exitosa = False
+            while not resta_exitosa:
                 try:
                     cantidad = int(input("Ingrese la cantidad de numeros que desea restar: "))
-                    for i in range(cantidad):
-                        numero = int(input(f"Ingrese el {i+1}° numero: "))
-                        resultado = numero - resultado
-                    print(f"El resultado de la resta es: {resultado}")
-                    suma_exitosa = True
+                    if cantidad < 1:
+                        print("Debe ingresar al menos 1 numero")
+                        continue
+                    primer_numero = int(input(f"Ingrese el 1° numero: "))
+                    resultado = primer_numero
+
+                    for i in range(2, cantidad +1):
+                        numero = int(input(f"Ingrese el {i}° de {cantidad} numeros: "))
+                        resultado -= numero
+                    print(f"El resultadode la resta es: {resultado}")
+                    resta_exitosa = True
                 except ValueError:
                     print("Solo se permite el ingresar de numeros")
         case 3:
