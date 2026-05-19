@@ -14,6 +14,7 @@ while opcion != 5:
             while not suma_exitosa:
                 try:
                     cantidad = int(input("Ingrese la cantidad de numeros que desea sumar: "))
+                    resultado = 0.0
                     for i in range(cantidad):
                         numero = int(input(f"Ingrese el {i+1}° numero: "))
                         resultado = resultado + numero
@@ -44,11 +45,12 @@ while opcion != 5:
             while not multi_exitosa:
                 try:
                     cantidad = int(input("Ingrese la cantidad de numeros que desea mutliplicar: "))
-                    for i in range(cantidad):
+                    resultado = float(input("Ingrese el primer numero: "))
+                    for i in range(2, cantidad +1):
                         numero = int(input(f"Ingrese el {i+1}° numero: "))
                         resultado = resultado * numero
-                    print(f"El resultado de la suma es: {resultado}")
-                    multi_exitosa = True
+                    print(f"El resultado de la multiplicacion es: {resultado}")
+                    multi_exitosa = True                    
                 except ValueError:
                     print("Solo se permite el ingreso de numeros")
         case 4:
