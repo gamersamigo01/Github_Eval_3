@@ -1,4 +1,5 @@
 sum_pesado = sum_liviano = 0
+placa_valida = True
 try:
     cuant_auto = int(input("Ingrese cuantos autos quiere ingresar al programa: "))
 except ValueError:
@@ -6,11 +7,16 @@ except ValueError:
 else:
     if cuant_auto > 0:
         for auto in range(0,cuant_auto):
-            placa = input(f"Ingrese la placa del {auto+1}° auto: ")
-            if (len(placa) >= 6) and not (" " in placa):
-                print(f"Placa valida {placa}")
-            else:
-                placa = input("Ingrese nuevamente la placa:")
+            while placa_valida and auto <= cuant_auto:
+                placa = input(f"Ingrese la placa del {auto+1}° auto: ")
+                if (len(placa) >= 6) and not (" " in placa):
+                    auto += 1
+                    print(f"Placa valida {placa}")
+                    placa_valida = False
+                else:
+                    placa = input("Error, Ingrese nuevamente la placa:")
+                    placa_valida = True
+
         for capacidad in range(0,cuant_auto):
             capacidad_auto = int(input(f"Ingrese la capacidad del {capacidad+1}° auto: "))
             if capacidad_auto > 0:
