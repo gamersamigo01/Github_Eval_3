@@ -10,10 +10,31 @@
 # if not valor_encontrado:
 #     print("El valor no fue encontrado")
             
-colores = ["rojo","verde","amarillo"]
-color_a_buscar = input("Ingrese un color: ").strip().lower()
-# colores.append(color_a_buscar)
-colores.insert(1,color_a_buscar)
+# colores = ["rojo","verde","amarillo"]
+# validar_color = False
+# validar_existe = False
 
-for indice,color in enumerate(colores):
-    print(f"{indice+1}° el color es: {color}")
+# while not validar_color:
+#     try:
+#         color_a_eliminar = input("Ingrese un color: ").strip().lower()
+#     except ValueError:
+#         print("Ingrese nuevamente")
+#     else:
+#         validar_color = True
+# # colores.append(color_a_buscar)
+# while not validar_existe:   
+
+#     try:
+#         colores.remove(color_a_eliminar)
+#     except ValueError:
+#         print("Color no encontrado, intente nuevamente")
+#     else:    
+#         for indice,color in enumerate(colores):
+#             print(f"{indice+1}° el color es: {color}")
+#         validar_existe = True
+
+
+colores = ["rojo","verde","amarillo"]
+colores.sort()
+for color in colores:
+    print(color)
