@@ -1,60 +1,56 @@
-print("Bienvenido al control de fondos, la caja chica tiene un fondo de 150.000 en principio")
-caja_chica = 150000
-menu_comprobador = False
-balance_movimientos = 0
-while not menu_comprobador:
+print("Bienvenido a cafeteria universitaria")
+caja_chica = 150_000
+gasto_neto = 0
+menu_bool = False
+while not menu_bool:
     print("1. Ver saldo actual en caja")
-    print("2. Registrar egresos(Gasto de insumos)")
-    print("3. Registrar ingreso(Reposicion de fondos)")
+    print("2. Registrar egreso(Gasto de insumos)")
+    print("3. Registrar ingreso(Reposición de fondos)")
     print("4. Ver balance neto de movimientos")
     print("5. Cerrar caja y salir")
     try:
-        opt = int(input("Ingrese una opcion: "))
+        opt = int(input("Ingrese la opcion: "))
     except ValueError:
         print("Error, ingrese un numero entero")
     else:
         if opt == 1:
-            print(f"La caja tiene un saldo de: {caja_chica}")
+            print(f"Saldo en caja: {caja_chica}")
         elif opt == 2:
-            egreso_correcto = False
-            while not egreso_correcto:  
+            egreso_comprobante = False
+            while not egreso_comprobante:                
                 try:
-                    egreso = int(input("Ingrese el monto de egreso: "))
+                   egreso = int(input("Ingrese cuanto se egreso de caja: "))
                 except ValueError:
-                    print("Error, ingrese un numero entero")
-                else:
-                    if egreso > 0:
-                        if egreso <= caja_chica:
-                            caja_chica -= egreso
-                            balance_movimientos -= egreso
-                            print("Se a descontado de la caja") 
-                            egreso_correcto = True
-                        else:
-                            print("El egreso no puede ser mayor al total de caja")
+                   print("Error, ingrese un numero entero")
+                else:   
+                    if egreso > 0 and egreso <= caja_chica:
+                        caja_chica -= egreso
+                        gasto_neto -= egreso
+                        print("Egreso confirmado")
+                        egreso_comprobante = True
                     else:
-                        print("Error, tiene que egresar un valor mayor a 0")
+                        print("Error, tiene que tener un valor mayor a 0 y menor al total de la caja chica")
         elif opt == 3:
-            ingreso_correcto = False
-            while not ingreso_correcto:
+            ingreso_comprobante = False
+            while not ingreso_comprobante:
                 try:
-                    ingreso = int(input("Ingrese el monto a ingresar: "))
+                    ingreso = int(input("Ingrese cuanto se ingreso a la caja: "))
                 except ValueError:
                     print("Error, ingrese un numero entero")
                 else:
-                    if ingreso > 0:
+                    if ingreso > 0 and ingreso + caja_chica <= 500_000:
                         caja_chica += ingreso
-                        if caja_chica <= 500000:
-                            print("Cantidad ingresada con exito")
-                            balance_movimientos += ingreso
-                            ingreso_correcto = True
-                        else:
-                            print("La cantidad maxima que se puede ingresar a la caja es de 500.000, no se puede exeder")
-                        print("Error, Tiene que ingresar un valor mayor a 0")
+                        gasto_neto += ingreso
+                        print("Ingreso comprobado")
+                        ingreso_comprobante = True
+                    else:
+                        print("Error, el valor debe ser mayor a 0 y no superar los 500.000 en caja")
         elif opt == 4:
-            print(f"[flujo neto] El balance de movimientos de hoy es de: ${balance_movimientos}")
+            print(f"Balance acomulado de hoy: ${gasto_neto}")
         elif opt == 5:
-            print("Gracias por usar este programa")
-            menu_comprobador = True
+            print("Gracias por usar el programa, adios")
+            menu_bool = True
         else:
-            print("Error, no esta dentro de los parametros del menu")    
-                                                       
+            print("error, Ingrese una opcion del 1 al 5")
+        
+                    
